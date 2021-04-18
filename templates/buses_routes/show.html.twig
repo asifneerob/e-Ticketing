@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BusesRoutes{% endblock %}
+
+{% block body %}
+    <h1>BusesRoutes</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ buses_route.id }}</td>
+            </tr>
+            <tr>
+                <th>RouteId</th>
+                <td>{{ buses_route.routeId }}</td>
+            </tr>
+            <tr>
+                <th>RoutesFrom</th>
+                <td>{{ buses_route.routesFrom }}</td>
+            </tr>
+            <tr>
+                <th>RoutesTo</th>
+                <td>{{ buses_route.routesTo }}</td>
+            </tr>
+            <tr>
+                <th>Time</th>
+                <td>{{ buses_route.time ? buses_route.time|date('H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ buses_route.date ? buses_route.date|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('buses_routes_index') }}">back to list</a>
+
+    <a href="{{ path('buses_routes_edit', {'id': buses_route.id}) }}">edit</a>
+
+    {{ include('buses_routes/_delete_form.html.twig') }}
+{% endblock %}

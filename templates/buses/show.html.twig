@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Buses{% endblock %}
+
+{% block body %}
+    <h1>Buses</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ bus.id }}</td>
+            </tr>
+            <tr>
+                <th>BusId</th>
+                <td>{{ bus.busId }}</td>
+            </tr>
+            <tr>
+                <th>BusName</th>
+                <td>{{ bus.busName }}</td>
+            </tr>
+            <tr>
+                <th>Seats</th>
+                <td>{{ bus.seats }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('buses_index') }}">back to list</a>
+
+    <a href="{{ path('buses_edit', {'id': bus.id}) }}">edit</a>
+
+    {{ include('buses/_delete_form.html.twig') }}
+{% endblock %}

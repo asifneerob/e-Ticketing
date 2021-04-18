@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Buses index{% endblock %}
+
+{% block body %}
+    <h1>Buses index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+{#                <th>Id</th>#}
+                <th>BusId</th>
+                <th>BusName</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Journey Date</th>
+                <th>Time</th>
+                <th>Seats</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for bus in buses |sort %}
+            <tr>
+{#                <td>{{ bus.id }}</td>#}
+                <td>{{ bus.busId }}</td>
+                <td>{{ bus.busName }}</td>
+                <td>{{ bus.busesRoutes.routesfrom }}</td>
+                <td>{{ bus.busesRoutes.routesto }}</td>
+                <td>{{ bus.busesRoutes.date |date('d-M-Y')}}</td>
+                <td>{{ bus.busesRoutes.time |date('H:i')}}</td>
+                <td>{{ bus.seats }}</td>
+                <td>
+                    <a href="{{ path('buses_show', {'id': bus.id}) }}">show</a>
+                    <a href="{{ path('buses_edit', {'id': bus.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('buses_new') }}">Create new</a> <br>
+    <a href="{{ path('buses_routes_index') }}">Buses Routes</a>
+{% endblock %}
