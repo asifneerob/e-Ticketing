@@ -784,12 +784,12 @@ false YEKT
 false Z
 false Zulu
 </TimeZones>
-      <StartupTime>1618643079</StartupTime>
+      <StartupTime>1618846480</StartupTime>
     </root>
     <database id="2" parent="1" name="e-ticketing">
       <ObjectId>25023</ObjectId>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>1902</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1967</IntrospectionStateNumber>
       <Current>1</Current>
     </database>
     <database id="3" parent="1" name="inventory_management">
@@ -881,7 +881,7 @@ UC/10
 </Acl>
       <StateNumber>287</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>1903</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1968</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <extension id="22" parent="2" name="plpgsql">
@@ -993,68 +993,86 @@ UC/10
       <StateNumber>1867</StateNumber>
       <DataType>bigint|0s</DataType>
     </sequence>
-    <sequence id="36" parent="21" name="ticket_purchase_id_seq">
-      <ObjectId>25050</ObjectId>
+    <sequence id="36" parent="21" name="ticket_id_seq">
+      <ObjectId>25130</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1882</StateNumber>
+      <StateNumber>1958</StateNumber>
       <DataType>bigint|0s</DataType>
     </sequence>
-    <table id="37" parent="21" name="buses">
+    <sequence id="37" parent="21" name="user_id_seq">
+      <ObjectId>25119</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>1924</StateNumber>
+      <DataType>bigint|0s</DataType>
+    </sequence>
+    <table id="38" parent="21" name="buses">
       <ObjectId>25034</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1895</StateNumber>
+      <StateNumber>1966</StateNumber>
     </table>
-    <table id="38" parent="21" name="buses_routes">
+    <table id="39" parent="21" name="buses_routes">
       <ObjectId>25040</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>1867</StateNumber>
     </table>
-    <table id="39" parent="21" name="doctrine_migration_versions">
+    <table id="40" parent="21" name="doctrine_migration_versions">
       <ObjectId>25024</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>1866</StateNumber>
     </table>
-    <table id="40" parent="21" name="ticket_purchase">
-      <ObjectId>25091</ObjectId>
+    <table id="41" parent="21" name="ticket">
+      <ObjectId>25132</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1895</StateNumber>
+      <StateNumber>1958</StateNumber>
     </table>
-    <column id="41" parent="37" name="id">
+    <table id="42" parent="21" name="user">
+      <ObjectId>25121</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>1926</StateNumber>
+    </table>
+    <column id="43" parent="38" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1867</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="42" parent="37" name="buses_routes_id">
+    <column id="44" parent="38" name="buses_routes_id">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1867</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="43" parent="37" name="bus_id">
+    <column id="45" parent="38" name="bus_id">
       <Position>3</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1867</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="44" parent="37" name="bus_name">
+    <column id="46" parent="38" name="bus_name">
       <Position>4</Position>
       <DataType>varchar(40)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1867</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="45" parent="37" name="seats">
+    <column id="47" parent="38" name="seats">
       <Position>5</Position>
       <DataType>varchar(40)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1867</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="46" parent="37" name="buses_pkey">
+    <column id="48" parent="38" name="fare">
+      <Position>7</Position>
+      <DataType>varchar(40)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1966</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="49" parent="38" name="buses_pkey">
       <ObjectId>25037</ObjectId>
       <StateNumber>1867</StateNumber>
       <ColNames>id</ColNames>
@@ -1064,7 +1082,7 @@ UC/10
       <CollationIds>0</CollationIds>
       <ClassIds>1978</ClassIds>
     </index>
-    <index id="47" parent="37" name="idx_fe00eaf38392caaa">
+    <index id="50" parent="38" name="idx_fe00eaf38392caaa">
       <ObjectId>25039</ObjectId>
       <StateNumber>1867</StateNumber>
       <ColNames>buses_routes_id</ColNames>
@@ -1072,14 +1090,14 @@ UC/10
       <CollationIds>0</CollationIds>
       <ClassIds>1978</ClassIds>
     </index>
-    <key id="48" parent="37" name="buses_pkey">
+    <key id="51" parent="38" name="buses_pkey">
       <ObjectId>25038</ObjectId>
       <StateNumber>1867</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>buses_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="49" parent="37" name="fk_fe00eaf38392caaa">
+    <foreign-key id="52" parent="38" name="fk_fe00eaf38392caaa">
       <ObjectId>25045</ObjectId>
       <StateNumber>1867</StateNumber>
       <ColNames>buses_routes_id</ColNames>
@@ -1089,49 +1107,49 @@ UC/10
       <RefKeyName>buses_routes_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="50" parent="38" name="id">
+    <column id="53" parent="39" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1867</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="51" parent="38" name="route_id">
+    <column id="54" parent="39" name="route_id">
       <Position>2</Position>
       <DataType>varchar(40)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1867</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="52" parent="38" name="routes_from">
+    <column id="55" parent="39" name="routes_from">
       <Position>3</Position>
       <DataType>varchar(40)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1867</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="53" parent="38" name="routes_to">
+    <column id="56" parent="39" name="routes_to">
       <Position>4</Position>
       <DataType>varchar(40)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1867</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="54" parent="38" name="time">
+    <column id="57" parent="39" name="time">
       <Position>5</Position>
       <DataType>time(0)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1867</StateNumber>
       <TypeId>1083</TypeId>
     </column>
-    <column id="55" parent="38" name="date">
+    <column id="58" parent="39" name="date">
       <Position>6</Position>
       <DataType>date|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1867</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <index id="56" parent="38" name="buses_routes_pkey">
+    <index id="59" parent="39" name="buses_routes_pkey">
       <ObjectId>25043</ObjectId>
       <StateNumber>1867</StateNumber>
       <ColNames>id</ColNames>
@@ -1141,34 +1159,34 @@ UC/10
       <CollationIds>0</CollationIds>
       <ClassIds>1978</ClassIds>
     </index>
-    <key id="57" parent="38" name="buses_routes_pkey">
+    <key id="60" parent="39" name="buses_routes_pkey">
       <ObjectId>25044</ObjectId>
       <StateNumber>1867</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>buses_routes_pkey</UnderlyingIndexName>
     </key>
-    <column id="58" parent="39" name="version">
+    <column id="61" parent="40" name="version">
       <Position>1</Position>
       <DataType>varchar(191)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1866</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="59" parent="39" name="executed_at">
+    <column id="62" parent="40" name="executed_at">
       <Position>2</Position>
       <DataType>timestamp(0)|0s</DataType>
       <StateNumber>1866</StateNumber>
       <DefaultExpression>NULL::timestamp without time zone</DefaultExpression>
       <TypeId>1114</TypeId>
     </column>
-    <column id="60" parent="39" name="execution_time">
+    <column id="63" parent="40" name="execution_time">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>1866</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="61" parent="39" name="doctrine_migration_versions_pkey">
+    <index id="64" parent="40" name="doctrine_migration_versions_pkey">
       <ObjectId>25028</ObjectId>
       <StateNumber>1866</StateNumber>
       <ColNames>version</ColNames>
@@ -1179,37 +1197,51 @@ UC/10
       <CollationNames>default</CollationNames>
       <ClassIds>3126</ClassIds>
     </index>
-    <key id="62" parent="39" name="doctrine_migration_versions_pkey">
+    <key id="65" parent="40" name="doctrine_migration_versions_pkey">
       <ObjectId>25029</ObjectId>
       <StateNumber>1866</StateNumber>
       <ColNames>version</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>doctrine_migration_versions_pkey</UnderlyingIndexName>
     </key>
-    <column id="63" parent="40" name="id">
+    <column id="66" parent="41" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1895</StateNumber>
+      <StateNumber>1958</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="64" parent="40" name="buses_id">
+    <column id="67" parent="41" name="buses_id">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1895</StateNumber>
+      <StateNumber>1958</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="65" parent="40" name="pnr">
+    <column id="68" parent="41" name="name">
       <Position>3</Position>
       <DataType>varchar(40)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1895</StateNumber>
+      <StateNumber>1958</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="66" parent="40" name="ticket_purchase_pkey">
-      <ObjectId>25094</ObjectId>
-      <StateNumber>1895</StateNumber>
+    <column id="69" parent="41" name="contact_number">
+      <Position>4</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1958</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="70" parent="41" name="email">
+      <Position>5</Position>
+      <DataType>varchar(40)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1958</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="71" parent="41" name="ticket_pkey">
+      <ObjectId>25135</ObjectId>
+      <StateNumber>1958</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
@@ -1217,24 +1249,24 @@ UC/10
       <CollationIds>0</CollationIds>
       <ClassIds>1978</ClassIds>
     </index>
-    <index id="67" parent="40" name="idx_e47e2dba75521321">
-      <ObjectId>25096</ObjectId>
-      <StateNumber>1895</StateNumber>
+    <index id="72" parent="41" name="idx_97a0ada375521321">
+      <ObjectId>25137</ObjectId>
+      <StateNumber>1958</StateNumber>
       <ColNames>buses_id</ColNames>
       <AccessMethodId>403</AccessMethodId>
       <CollationIds>0</CollationIds>
       <ClassIds>1978</ClassIds>
     </index>
-    <key id="68" parent="40" name="ticket_purchase_pkey">
-      <ObjectId>25095</ObjectId>
-      <StateNumber>1895</StateNumber>
+    <key id="73" parent="41" name="ticket_pkey">
+      <ObjectId>25136</ObjectId>
+      <StateNumber>1958</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
-      <UnderlyingIndexName>ticket_purchase_pkey</UnderlyingIndexName>
+      <UnderlyingIndexName>ticket_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="69" parent="40" name="fk_e47e2dba75521321">
-      <ObjectId>25097</ObjectId>
-      <StateNumber>1895</StateNumber>
+    <foreign-key id="74" parent="41" name="fk_97a0ada375521321">
+      <ObjectId>25138</ObjectId>
+      <StateNumber>1958</StateNumber>
       <ColNames>buses_id</ColNames>
       <RefTableId>25034</RefTableId>
       <RefColPositions>1</RefColPositions>
@@ -1242,5 +1274,74 @@ UC/10
       <RefKeyName>buses_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
+    <column id="75" parent="42" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1924</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="76" parent="42" name="email">
+      <Position>2</Position>
+      <DataType>varchar(180)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1924</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="77" parent="42" name="roles">
+      <Position>3</Position>
+      <DataType>json|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1924</StateNumber>
+      <TypeId>114</TypeId>
+    </column>
+    <column id="78" parent="42" name="password">
+      <Position>4</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1924</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="79" parent="42" name="user_name">
+      <Position>5</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1925</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="80" parent="42" name="phone_number">
+      <Position>6</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1926</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="81" parent="42" name="user_pkey">
+      <ObjectId>25127</ObjectId>
+      <StateNumber>1924</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+      <AccessMethodId>403</AccessMethodId>
+      <CollationIds>0</CollationIds>
+      <ClassIds>1978</ClassIds>
+    </index>
+    <index id="82" parent="42" name="uniq_8d93d649e7927c74">
+      <ObjectId>25129</ObjectId>
+      <StateNumber>1924</StateNumber>
+      <ColNames>email</ColNames>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+      <CollationIds>100</CollationIds>
+      <CollationNames>default</CollationNames>
+      <ClassIds>3126</ClassIds>
+    </index>
+    <key id="83" parent="42" name="user_pkey">
+      <ObjectId>25128</ObjectId>
+      <StateNumber>1924</StateNumber>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>user_pkey</UnderlyingIndexName>
+    </key>
   </database-model>
 </dataSource>

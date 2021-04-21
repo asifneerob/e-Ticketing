@@ -3,8 +3,8 @@
 {% block title %}Buses index{% endblock %}
 
 {% block body %}
-    <h1>Buses index</h1>
-
+    <table width="100%"height="100%"><th>{{ include('navbar.html.twig') }}</th> </table>
+    <h3>Buses index</h3>
     <table class="table">
         <thead>
             <tr>
@@ -16,6 +16,7 @@
                 <th>Journey Date</th>
                 <th>Time</th>
                 <th>Seats</th>
+                <th>Fare</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -30,6 +31,7 @@
                 <td>{{ bus.busesRoutes.date |date('d-M-Y')}}</td>
                 <td>{{ bus.busesRoutes.time |date('H:i')}}</td>
                 <td>{{ bus.seats }}</td>
+                <td>{{ bus.fare }}</td>
                 <td>
                     <a href="{{ path('buses_show', {'id': bus.id}) }}">show</a>
                     <a href="{{ path('buses_edit', {'id': bus.id}) }}">edit</a>
@@ -45,4 +47,5 @@
 
     <a href="{{ path('buses_new') }}">Create new</a> <br>
     <a href="{{ path('buses_routes_index') }}">Buses Routes</a>
+
 {% endblock %}

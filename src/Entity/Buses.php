@@ -38,6 +38,11 @@ class Buses
      */
     private $busesRoutes;
 
+    /**
+     * @ORM\Column(type="string", length=40)
+     */
+    private $fare;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -95,6 +100,18 @@ class Buses
         return $this->busName;
         // to show the id of the Category in the select
         // return $this->id;
+    }
+
+    public function getFare(): ?string
+    {
+        return $this->fare;
+    }
+
+    public function setFare(string $fare): self
+    {
+        $this->fare = $fare;
+
+        return $this;
     }
 
 }

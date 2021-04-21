@@ -15,6 +15,7 @@ class BusesType extends AbstractType
             ->add('busId')
             ->add('busName')
             ->add('seats')
+            ->add('fare')
             ->add('busesRoutes')
         ;
     }

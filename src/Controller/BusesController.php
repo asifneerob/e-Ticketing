@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/buses')]
 class BusesController extends AbstractController
 {
-    #[Route('/', name: 'buses_index', methods: ['GET'])]
+    #[Route('/home', name: 'buses_index', methods: ['GET'])]
     public function index(BusesRepository $busesRepository): Response
     {
         return $this->render('buses/index.html.twig', [
